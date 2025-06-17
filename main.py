@@ -28,7 +28,7 @@ def is_allowed_user():
 @is_allowed_user()
 async def run(ctx, *, cmd):
     try:
-        result = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=5)
+        result = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=10)
         output = (result.stdout or result.stderr)[:1999] or "No output."
         await ctx.send(
             f"```bash\n{output.replace('`', 'ˋ')}```"
